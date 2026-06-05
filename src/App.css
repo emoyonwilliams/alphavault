@@ -1,219 +1,354 @@
+/* ============================================
+   CYPHERPUNK REFINED APP.CSS
+   Design Variance: 8 | Motion Intensity: 3 | Visual Density: 6
+   Principles:
+   - Pure monochromatic: black/white/gray only
+   - Monospace typography: cryptographic authority
+   - Minimal geometric hierarchy: grid-based, sharp edges
+   - No rounded corners: straight technical lines
+   - Privacy-forward aesthetic: minimal ornamentation
+   - Ultra-high contrast: WCAG AAA compliance
+   - Neon accent: cyber lime green for critical signals
+   ============================================ */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+:root {
+  --color-bg-primary: #000000;
+  --color-bg-secondary: #0a0a0a;
+  --color-bg-tertiary: #121212;
+  --color-border: #1f1f1f;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #d4d4d8;
+  --color-text-tertiary: #888888;
+  --color-accent: #00ff00; /* Cyber lime green */
+  --color-accent-dark: #00cc00;
+  --color-accent-hover: #00ff66;
+  --color-error: #ff3333;
+  --color-warning: #ffaa00;
+  --border-width: 1px;
+  --border-style: solid;
+  --transition-fast: 100ms linear;
+  --transition-base: 150ms linear;
+}
+
+html {
+  background-color: var(--color-bg-primary);
+}
+
 body {
-  background-color: #0a0a0f;
-  color: #e2e8f0;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: 'Courier New', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  -webkit-font-smoothing: none;
+  letter-spacing: 0.3px;
   min-height: 100vh;
 }
+
+/* ============================================
+   LAYOUT & CONTAINER
+   ============================================ */
 
 .app {
   max-width: 800px;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-/* Header */
+/* ============================================
+   HEADER
+   ============================================ */
+
 .app-header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  padding: 24px 0;
-  border-bottom: 1px solid #1e1e2e;
+  padding: 32px 0 24px;
+  border-bottom: var(--border-width) var(--border-style) var(--color-border);
+  gap: 16px;
 }
 
 .header-left {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 8px;
 }
 
 .logo {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 700;
-  letter-spacing: -0.5px;
-  background: linear-gradient(135deg, #00d4aa, #7c3aed);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  letter-spacing: 1px;
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  font-family: 'Courier New', monospace;
 }
 
 .tagline {
-  font-size: 12px;
-  color: #64748b;
-  letter-spacing: 0.5px;
+  font-size: 10px;
+  color: var(--color-text-tertiary);
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  font-weight: 400;
 }
 
 .wallet-connect {
   display: flex;
   align-items: center;
   gap: 12px;
+  margin-left: auto;
 }
 
 .wallet-address {
-  font-size: 12px;
-  color: #00d4aa;
-  font-family: monospace;
+  font-size: 10px;
+  color: var(--color-accent);
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
-/* Nav */
+/* ============================================
+   NAVIGATION
+   ============================================ */
+
 .app-nav {
   display: flex;
-  gap: 8px;
+  gap: 6px;
   padding: 20px 0;
-  border-bottom: 1px solid #1e1e2e;
+  border-bottom: var(--border-width) var(--border-style) var(--color-border);
+  flex-wrap: nowrap;
+  overflow-x: auto;
 }
 
 .nav-btn {
-  padding: 8px 20px;
-  border-radius: 8px;
-  border: 1px solid #1e1e2e;
+  padding: 8px 16px;
+  border: var(--border-width) var(--border-style) var(--color-border);
   background: transparent;
-  color: #64748b;
-  font-size: 14px;
+  color: var(--color-text-secondary);
+  font-size: 11px;
+  font-weight: 400;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all var(--transition-base);
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .nav-btn:hover {
-  border-color: #00d4aa;
-  color: #00d4aa;
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  background: transparent;
 }
 
 .nav-btn.active {
-  background: #00d4aa15;
-  border-color: #00d4aa;
-  color: #00d4aa;
+  background: transparent;
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  box-shadow: inset 0 0 0 1px var(--color-accent);
 }
 
-/* Main */
+.nav-btn:active {
+  transform: scale(0.97);
+}
+
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
+
 .app-main {
-  padding: 24px 0;
-  min-height: 60vh;
+  padding: 32px 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Signal Feed */
+/* ============================================
+   SIGNAL FEED
+   ============================================ */
+
 .signal-feed {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .feed-loading,
 .feed-empty {
   text-align: center;
-  padding: 60px 0;
-  color: #64748b;
+  padding: 80px 24px;
+  color: var(--color-text-tertiary);
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
-/* Signal Card */
+/* ============================================
+   SIGNAL CARD (Pure hierarchy, no ornamentation)
+   ============================================ */
+
 .signal-card {
-  background: #0f0f1a;
-  border: 1px solid #1e1e2e;
-  border-radius: 12px;
-  padding: 20px;
-  transition: border-color 0.2s;
+  background: var(--color-bg-secondary);
+  border: var(--border-width) var(--border-style) var(--color-border);
+  padding: 16px;
+  transition: all var(--transition-base);
+  display: grid;
+  grid-template-rows: auto auto auto;
+  gap: 12px;
 }
 
 .signal-card:hover {
-  border-color: #2e2e4e;
+  border-color: var(--color-accent);
+  box-shadow: none;
+  background: rgba(0, 255, 0, 0.01);
 }
 
+/* ============================================
+   SIGNAL CARD HEADER
+   ============================================ */
+
 .signal-card-header {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto;
   align-items: flex-start;
-  margin-bottom: 12px;
+  gap: 12px;
 }
 
 .signal-asset-info {
   display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.signal-card-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 12px;
+  align-items: baseline;
   gap: 12px;
 }
 
 .signal-asset {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 700;
-  color: #f1f5f9;
+  color: var(--color-text-primary);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .signal-category {
-  font-size: 11px;
-  font-weight: 600;
-  padding: 2px 8px;
-  border-radius: 99px;
-  color: #0a0a0f;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 3px 8px;
+  background: var(--color-accent);
+  color: var(--color-bg-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  border: none;
 }
 
 .signal-date {
-  font-size: 12px;
-  color: #64748b;
+  font-size: 10px;
+  color: var(--color-text-tertiary);
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
 }
 
+/* ============================================
+   SIGNAL CARD BODY
+   ============================================ */
+
 .signal-entry {
-  font-size: 14px;
-  color: #94a3b8;
-  margin-bottom: 10px;
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px;
+  line-height: 1.6;
 }
 
 .signal-entry strong {
-  color: #00d4aa;
+  color: var(--color-accent);
+  font-weight: 700;
 }
 
 .signal-thesis {
-  font-size: 14px;
-  color: #cbd5e1;
-  line-height: 1.6;
-  margin-bottom: 16px;
+  font-size: 12px;
+  color: var(--color-text-primary);
+  line-height: 1.7;
+  margin: 0;
+  letter-spacing: 0.2px;
+}
+
+/* ============================================
+   SIGNAL CARD FOOTER
+   ============================================ */
+
+.signal-card-footer {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: var(--border-width) var(--border-style) var(--color-border);
+  flex-wrap: wrap;
 }
 
 .signal-horizon {
-  font-size: 12px;
-  color: #64748b;
-  background: #1e1e2e;
-  padding: 4px 10px;
-  border-radius: 6px;
+  font-size: 10px;
+  color: var(--color-text-tertiary);
+  background: transparent;
+  padding: 0;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
 }
 
 .signal-wallet {
-  font-size: 12px;
-  color: #64748b;
-  font-family: monospace;
+  font-size: 9px;
+  color: var(--color-text-tertiary);
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
 }
 
 .signal-blob-link {
-  font-size: 12px;
-  color: #7c3aed;
+  font-size: 10px;
+  color: var(--color-accent);
   text-decoration: none;
+  font-weight: 700;
+  transition: color var(--transition-fast);
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
 }
 
 .signal-blob-link:hover {
+  color: var(--color-accent-hover);
   text-decoration: underline;
 }
 
-/* Submit Form */
+/* ============================================
+   SUBMIT FORM SECTION
+   ============================================ */
+
 .submit-signal {
   max-width: 560px;
 }
 
 .submit-signal h2 {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 700;
   margin-bottom: 24px;
-  color: #f1f5f9;
+  color: var(--color-text-primary);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
 }
+
+/* ============================================
+   FORM STRUCTURE (Contrast & Accessibility)
+   ============================================ */
 
 .form-group {
   margin-bottom: 20px;
@@ -223,54 +358,88 @@ body {
 }
 
 .form-group label {
-  font-size: 13px;
-  font-weight: 500;
-  color: #94a3b8;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  display: block;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
-  background: #0f0f1a;
-  border: 1px solid #1e1e2e;
-  border-radius: 8px;
-  padding: 10px 14px;
-  color: #f1f5f9;
-  font-size: 14px;
+  background: var(--color-bg-secondary);
+  border: var(--border-width) var(--border-style) var(--color-border);
+  padding: 10px 12px;
+  color: var(--color-text-primary);
+  font-size: 12px;
   outline: none;
-  transition: border-color 0.2s;
-  font-family: inherit;
+  transition: all var(--transition-base);
+  font-family: 'Courier New', monospace;
+  line-height: 1.5;
+  letter-spacing: 0.2px;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--color-text-tertiary);
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-  border-color: #00d4aa;
+  border-color: var(--color-accent);
+  background: rgba(0, 255, 0, 0.02);
+  box-shadow: inset 0 0 0 1px var(--color-accent);
+}
+
+.form-group select {
+  cursor: pointer;
 }
 
 .form-group select option {
-  background: #0f0f1a;
+  background: var(--color-bg-tertiary);
+  color: var(--color-text-primary);
 }
 
 .form-group textarea {
   resize: vertical;
+  min-height: 120px;
 }
+
+/* ============================================
+   BUTTONS (High-contrast, sharp states)
+   ============================================ */
 
 .submit-btn {
   width: 100%;
-  padding: 12px;
-  background: linear-gradient(135deg, #00d4aa, #7c3aed);
-  border: none;
-  border-radius: 8px;
-  color: white;
-  font-size: 15px;
-  font-weight: 600;
+  padding: 12px 20px;
+  background: var(--color-accent);
+  border: var(--border-width) var(--border-style) var(--color-accent);
+  color: var(--color-bg-primary);
+  font-size: 12px;
+  font-weight: 700;
   cursor: pointer;
-  transition: opacity 0.2s;
+  transition: all var(--transition-base);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  white-space: nowrap;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Courier New', monospace;
 }
 
-.submit-btn:hover {
-  opacity: 0.9;
+.submit-btn:hover:not(:disabled) {
+  background: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+  box-shadow: 0 0 8px rgba(0, 255, 0, 0.2);
+}
+
+.submit-btn:active:not(:disabled) {
+  transform: scale(0.96);
 }
 
 .submit-btn:disabled {
@@ -278,24 +447,91 @@ body {
   cursor: not-allowed;
 }
 
+/* ============================================
+   FEEDBACK STATES
+   ============================================ */
+
 .error {
-  color: #ef4444;
-  font-size: 13px;
-  margin-bottom: 12px;
+  color: var(--color-error);
+  font-size: 11px;
+  font-weight: 700;
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
 }
 
 .connect-hint {
   text-align: center;
-  font-size: 13px;
-  color: #64748b;
-  margin-top: 12px;
+  font-size: 10px;
+  color: var(--color-text-tertiary);
+  margin-top: 16px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
 }
 
-/* Footer */
+/* ============================================
+   FOOTER
+   ============================================ */
+
 .app-footer {
   text-align: center;
-  padding: 24px 0;
-  border-top: 1px solid #1e1e2e;
-  font-size: 12px;
-  color: #64748b;
+  padding: 32px 0 24px;
+  border-top: var(--border-width) var(--border-style) var(--color-border);
+  font-size: 10px;
+  color: var(--color-text-tertiary);
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  margin-top: auto;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+@media (max-width: 640px) {
+  .app {
+    padding: 0 16px;
+  }
+
+  .app-header {
+    padding: 24px 0 16px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .wallet-connect {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .app-nav {
+    gap: 4px;
+    padding: 16px 0;
+  }
+
+  .nav-btn {
+    padding: 6px 12px;
+    font-size: 10px;
+  }
+
+  .app-main {
+    padding: 24px 0;
+  }
+
+  .signal-card {
+    gap: 10px;
+  }
+
+  .signal-card-header {
+    grid-template-columns: 1fr;
+  }
+
+  .signal-card-footer {
+    grid-template-columns: 1fr;
+    align-items: flex-start;
+  }
+
+  .submit-signal h2 {
+    font-size: 14px;
+  }
 }

@@ -564,3 +564,75 @@
   color: var(--color-accent);
   font-weight: 700;
 }
+/* ============================================
+   LIVE PRICE FEED
+   ============================================ */
+
+   .signal-price-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .signal-live-price {
+    font-size: 11px;
+    font-family: 'Courier New', monospace;
+    text-align: right;
+  }
+  
+  .price-loading {
+    color: var(--color-text-tertiary);
+    letter-spacing: 0.4px;
+    animation: blink 1s step-end infinite;
+  }
+  
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+  
+  .price-now {
+    color: var(--color-text-secondary);
+    letter-spacing: 0.3px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+  
+  .price-now strong {
+    color: var(--color-text-primary);
+    font-weight: 700;
+  }
+  
+  .price-delta {
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.3px;
+  }
+  
+  .price-delta.up {
+    color: var(--color-accent);
+  }
+  
+  .price-delta.down {
+    color: var(--color-error);
+  }
+  
+  .price-unknown {
+    color: var(--color-text-tertiary);
+    font-size: 10px;
+    letter-spacing: 0.4px;
+  }
+  /* ============================================
+   CHART INTERACTION
+   ============================================ */
+
+.price-chart-container {
+  margin-top: 8px;
+  border: var(--border-width) var(--border-style) var(--color-border);
+}
+
+.tradingview-widget-container {
+  pointer-events: all;
+}

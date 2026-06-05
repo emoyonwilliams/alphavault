@@ -1,0 +1,301 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0a0a0f;
+  color: #e2e8f0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  min-height: 100vh;
+}
+
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Header */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0;
+  border-bottom: 1px solid #1e1e2e;
+}
+
+.header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #00d4aa, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.tagline {
+  font-size: 12px;
+  color: #64748b;
+  letter-spacing: 0.5px;
+}
+
+.wallet-connect {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.wallet-address {
+  font-size: 12px;
+  color: #00d4aa;
+  font-family: monospace;
+}
+
+/* Nav */
+.app-nav {
+  display: flex;
+  gap: 8px;
+  padding: 20px 0;
+  border-bottom: 1px solid #1e1e2e;
+}
+
+.nav-btn {
+  padding: 8px 20px;
+  border-radius: 8px;
+  border: 1px solid #1e1e2e;
+  background: transparent;
+  color: #64748b;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.nav-btn:hover {
+  border-color: #00d4aa;
+  color: #00d4aa;
+}
+
+.nav-btn.active {
+  background: #00d4aa15;
+  border-color: #00d4aa;
+  color: #00d4aa;
+}
+
+/* Main */
+.app-main {
+  padding: 24px 0;
+  min-height: 60vh;
+}
+
+/* Signal Feed */
+.signal-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.feed-loading,
+.feed-empty {
+  text-align: center;
+  padding: 60px 0;
+  color: #64748b;
+}
+
+/* Signal Card */
+.signal-card {
+  background: #0f0f1a;
+  border: 1px solid #1e1e2e;
+  border-radius: 12px;
+  padding: 20px;
+  transition: border-color 0.2s;
+}
+
+.signal-card:hover {
+  border-color: #2e2e4e;
+}
+
+.signal-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.signal-asset-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.signal-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  gap: 12px;
+}
+
+.signal-asset {
+  font-size: 18px;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.signal-category {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 99px;
+  color: #0a0a0f;
+}
+
+.signal-date {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.signal-entry {
+  font-size: 14px;
+  color: #94a3b8;
+  margin-bottom: 10px;
+}
+
+.signal-entry strong {
+  color: #00d4aa;
+}
+
+.signal-thesis {
+  font-size: 14px;
+  color: #cbd5e1;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.signal-horizon {
+  font-size: 12px;
+  color: #64748b;
+  background: #1e1e2e;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.signal-wallet {
+  font-size: 12px;
+  color: #64748b;
+  font-family: monospace;
+}
+
+.signal-blob-link {
+  font-size: 12px;
+  color: #7c3aed;
+  text-decoration: none;
+}
+
+.signal-blob-link:hover {
+  text-decoration: underline;
+}
+
+/* Submit Form */
+.submit-signal {
+  max-width: 560px;
+}
+
+.submit-signal h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #f1f5f9;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #94a3b8;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: #0f0f1a;
+  border: 1px solid #1e1e2e;
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: #f1f5f9;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+  font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #00d4aa;
+}
+
+.form-group select option {
+  background: #0f0f1a;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #00d4aa, #7c3aed);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.submit-btn:hover {
+  opacity: 0.9;
+}
+
+.submit-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.error {
+  color: #ef4444;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.connect-hint {
+  text-align: center;
+  font-size: 13px;
+  color: #64748b;
+  margin-top: 12px;
+}
+
+/* Footer */
+.app-footer {
+  text-align: center;
+  padding: 24px 0;
+  border-top: 1px solid #1e1e2e;
+  font-size: 12px;
+  color: #64748b;
+}

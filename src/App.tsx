@@ -5,7 +5,8 @@ import '@mysten/dapp-kit/dist/index.css';
 import { WalletConnect } from './components/WalletConnect';
 import { SignalFeed } from './components/SignalFeed';
 import { SubmitSignal } from './components/SubmitSignal';
-import { fetchFromWalrus, saveRegistry, loadRegistry } from './lib/walrus';
+import { loadSignalsFromRegistry, updateRegistry } from './lib/walrus';
+import { getLatestCheckpoint } from './lib/tatum';
 import type { Signal } from './types';
 import './App.css';
 
@@ -19,34 +20,30 @@ function AlphaVault() {
   const [signals, setSignals] = useState<Signal[]>([]);
   const [activeTab, setActiveTab] = useState<'feed' | 'submit'>('feed');
   const [loading, setLoading] = useState(true);
+  const [checkpoint, setCheckpoint] = useState<string>('');
 
   useEffect(() => {
-    async function loadSignals() {
+    async function init() {
       setLoading(true);
       try {
-        const blobIds = loadRegistry();
-        const loaded: Signal[] = [];
-        for (const blobId of blobIds) {
-          try {
-            const signal = await fetchFromWalrus(blobId);
-            loaded.push(signal);
-          } catch {
-            // skip corrupted blobs
-          }
-        }
-        setSignals(loaded);
+        const [loadedSignals, cp] = await Promise.all([
+          loadSignalsFromRegistry(),
+          getLatestCheckpoint(),
+        ]);
+        setSignals(loadedSignals);
+        setCheckpoint(cp);
       } catch {
-        // registry empty
+        // silent fail
       } finally {
         setLoading(false);
       }
     }
-    loadSignals();
+    init();
   }, []);
 
   const handleSignalSubmitted = async (signal: Signal) => {
     setSignals((prev) => [signal, ...prev]);
-    await saveRegistry([signal.blobId]);
+    await updateRegistry(signal.blobId);
     setActiveTab('feed');
   };
 
@@ -59,6 +56,14 @@ function AlphaVault() {
         </div>
         <WalletConnect />
       </header>
+
+      {checkpoint && (
+        <div className="chain-status">
+          <span className="chain-dot" />
+          <span>Sui Testnet — Block <strong>#{checkpoint}</strong> via Tatum</span>
+        </div>
+      )}
+
       <nav className="app-nav">
         <button
           className={`nav-btn ${activeTab === 'feed' ? 'active' : ''}`}
@@ -73,6 +78,7 @@ function AlphaVault() {
           Post Signal
         </button>
       </nav>
+
       <main className="app-main">
         {activeTab === 'feed' ? (
           <SignalFeed signals={signals} loading={loading} />
@@ -80,6 +86,7 @@ function AlphaVault() {
           <SubmitSignal onSignalSubmitted={handleSignalSubmitted} />
         )}
       </main>
+
       <footer className="app-footer">
         <p>Powered by Walrus + Sui + Tatum</p>
       </footer>

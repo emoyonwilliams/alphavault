@@ -535,4 +535,32 @@
       font-size: 14px;
     }
   }
-  
+  /* ============================================
+   CHAIN STATUS (Tatum RPC live indicator)
+   ============================================ */
+
+.chain-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  color: var(--color-text-tertiary);
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  border-bottom: var(--border-width) var(--border-style) var(--color-border);
+}
+
+.chain-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 0;
+  background: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.chain-status strong {
+  color: var(--color-accent);
+  font-weight: 700;
+}

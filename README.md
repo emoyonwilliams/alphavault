@@ -1,73 +1,57 @@
-# React + TypeScript + Vite
+# AlphaVault
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> On-chain alpha. Permanent proof.
 
-Currently, two official plugins are available:
+AlphaVault is a decentralized crypto signal board built on Sui and powered by Walrus storage. Traders and researchers post early alpha calls — presales, new protocols, undervalued gems — and every signal is stored permanently on Walrus. Nobody can delete it, nobody can fake the timestamp.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## The Problem
 
-## React Compiler
+Early crypto opportunities get called in private Telegram groups and Discord servers. By the time they go public, it's too late. And anyone can screenshot a win while hiding their losses. There's no verifiable track record.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## The Solution
 
-## Expanding the ESLint configuration
+AlphaVault stores every signal as a blob on Walrus decentralized storage, timestamped permanently on Sui. Wallets build provable track records based on their calls. The archive is public, permanent, and uncensorable.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Features
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Post alpha signals with asset, entry price, thesis, category, and time horizon
+- Every signal stored as a Walrus blob on Sui testnet
+- Connect Sui wallet via Slush/dApp Kit
+- Persistent signal feed loaded from Walrus on every visit
+- Direct link to verify each signal on Walrus aggregator
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Tech Stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- React + TypeScript + Vite
+- Walrus decentralized storage (testnet)
+- Sui blockchain via Tatum RPC
+- @mysten/dapp-kit for wallet connection
+- Deployed on Vercel
+
+## Live Demo
+
+[https://alphavault-six.vercel.app](https://alphavault-six.vercel.app)
+
+## Setup
+
+```bash
+git clone https://github.com/emoyonwilliams/alphavault.git
+cd alphavault
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Create a `.env` file:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+VITE_TATUM_API_KEY=your_tatum_testnet_api_key
+```
+
+```bash
+npm run dev
+```
+
+## Hackathon
+
+Built for the Tatum x Build on Sui with Walrus Hackathon (May 23 - June 6, 2026).
+
+Powered by Walrus + Sui + Tatum.

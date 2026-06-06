@@ -636,3 +636,587 @@
 .tradingview-widget-container {
   pointer-events: all;
 }
+/* ============================================
+   FORM ENHANCEMENTS
+   ============================================ */
+
+   .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  
+  .confidence-selector {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .confidence-btn {
+    background: transparent;
+    border: none;
+    color: var(--color-border);
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0;
+    transition: color var(--transition-fast);
+    font-family: 'Courier New', monospace;
+  }
+  
+  .confidence-btn.filled {
+    color: var(--color-accent);
+  }
+  
+  .confidence-btn:hover {
+    color: var(--color-accent);
+  }
+  
+  .confidence-label {
+    font-size: 10px;
+    color: var(--color-accent);
+    letter-spacing: 0.5px;
+    margin-left: 4px;
+  }
+  
+  @media (max-width: 640px) {
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+  }
+  /* ============================================
+   ENHANCED SIGNAL CARD
+   ============================================ */
+
+.signal-type {
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 7px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  font-family: 'Courier New', monospace;
+}
+
+.signal-type.long {
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+}
+
+.signal-type.short {
+  color: var(--color-error);
+  border: 1px solid var(--color-error);
+}
+
+.signal-header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.signal-x-handle {
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  color: var(--color-text-tertiary);
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  transition: color var(--transition-fast);
+}
+
+.signal-x-handle:hover {
+  color: var(--color-accent);
+}
+
+.signal-price-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px;
+  background: var(--color-border);
+  border: 1px solid var(--color-border);
+  margin-bottom: 12px;
+}
+
+.price-box {
+  background: var(--color-bg-secondary);
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.price-label {
+  font-family: 'Courier New', monospace;
+  font-size: 9px;
+  color: var(--color-text-tertiary);
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.price-value {
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: 0.3px;
+}
+
+.price-value.target {
+  color: var(--color-accent);
+}
+
+.price-to-target {
+  font-family: 'Courier New', monospace;
+  font-size: 9px;
+  letter-spacing: 0.3px;
+}
+
+.price-to-target.up {
+  color: var(--color-accent);
+}
+
+.price-to-target.down {
+  color: var(--color-error);
+}
+
+.price-delta {
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.price-delta.up {
+  color: var(--color-accent);
+}
+
+.price-delta.down {
+  color: var(--color-error);
+}
+
+.price-loading {
+  color: var(--color-text-tertiary);
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  animation: blink 1s step-end infinite;
+}
+
+.price-unknown {
+  color: var(--color-text-tertiary);
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+}
+
+.confidence-display {
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+/* ============================================
+   LANDING PAGE
+   ============================================ */
+
+   .landing {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .landing-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 32px 0 24px;
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  .landing-logo {
+    font-family: 'Courier New', monospace;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    letter-spacing: 2px;
+  }
+  
+  .landing-enter-btn {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--color-accent);
+    background: transparent;
+    border: 1px solid var(--color-accent);
+    padding: 8px 16px;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: all var(--transition-base);
+  }
+  
+  .landing-enter-btn:hover {
+    background: var(--color-accent);
+    color: var(--color-bg-primary);
+  }
+  
+  .landing-hero {
+    padding: 80px 0 60px;
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  .landing-hero-tag {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    color: var(--color-accent);
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+  }
+  
+  .landing-headline {
+    font-family: 'Courier New', monospace;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    margin-bottom: 20px;
+    max-width: 600px;
+  }
+  
+  .landing-subtext {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    max-width: 560px;
+    margin-bottom: 32px;
+  }
+  
+  .landing-cta {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--color-bg-primary);
+    background: var(--color-accent);
+    border: none;
+    padding: 14px 28px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: all var(--transition-base);
+    display: inline-block;
+    margin-bottom: 24px;
+  }
+  
+  .landing-cta:hover {
+    background: var(--color-accent-hover);
+    transform: translateY(-1px);
+  }
+  
+  .landing-powered {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    color: var(--color-text-tertiary);
+    letter-spacing: 1px;
+  }
+  
+  .landing-manifesto {
+    padding: 48px 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  .landing-manifesto p {
+    font-family: 'Courier New', monospace;
+    font-size: 15px;
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    border-left: 2px solid var(--color-accent);
+    padding-left: 20px;
+    max-width: 620px;
+  }
+  
+  .landing-section {
+    padding: 60px 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  .landing-section-tag {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    color: var(--color-accent);
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+  
+  .landing-section-title {
+    font-family: 'Courier New', monospace;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    letter-spacing: -0.3px;
+    margin-bottom: 32px;
+  }
+  
+  .landing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px;
+    background: var(--color-border);
+    border: 1px solid var(--color-border);
+  }
+  
+  .landing-grid-item {
+    background: var(--color-bg-secondary);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .grid-number {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    color: var(--color-accent);
+    letter-spacing: 1px;
+  }
+  
+  .landing-grid-item h3 {
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    letter-spacing: 0.2px;
+  }
+  
+  .landing-grid-item p {
+    font-size: 12px;
+    color: var(--color-text-tertiary);
+    line-height: 1.6;
+  }
+  
+  .landing-steps {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px;
+    background: var(--color-border);
+    border: 1px solid var(--color-border);
+  }
+  
+  .landing-step {
+    background: var(--color-bg-secondary);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .step-num {
+    font-family: 'Courier New', monospace;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-accent);
+  }
+  
+  .step-connector {
+    display: none;
+  }
+  
+  .landing-step h3 {
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+  
+  .landing-step p {
+    font-size: 12px;
+    color: var(--color-text-tertiary);
+    line-height: 1.6;
+  }
+  
+  .landing-solution-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--color-border);
+    border: 1px solid var(--color-border);
+  }
+  
+  .landing-solution-item {
+    background: var(--color-bg-secondary);
+    padding: 24px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  
+  .solution-icon {
+    color: var(--color-accent);
+    font-size: 12px;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+  
+  .landing-solution-item h3 {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 8px;
+    letter-spacing: 0.2px;
+  }
+  
+  .landing-solution-item p {
+    font-size: 12px;
+    color: var(--color-text-tertiary);
+    line-height: 1.6;
+  }
+  
+  .landing-vision-text {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    max-width: 600px;
+    margin-bottom: 40px;
+  }
+  
+  .landing-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--color-border);
+    border: 1px solid var(--color-border);
+  }
+  
+  .landing-stat {
+    background: var(--color-bg-secondary);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .stat-value {
+    font-family: 'Courier New', monospace;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-accent);
+    letter-spacing: 1px;
+  }
+  
+  .stat-label {
+    font-family: 'Courier New', monospace;
+    font-size: 9px;
+    color: var(--color-text-tertiary);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  
+  .landing-tech {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px;
+    background: var(--color-border);
+    border: 1px solid var(--color-border);
+  }
+  
+  .tech-item {
+    background: var(--color-bg-secondary);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .tech-name {
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-accent);
+    letter-spacing: 2px;
+  }
+  
+  .tech-item p {
+    font-size: 12px;
+    color: var(--color-text-tertiary);
+    line-height: 1.6;
+  }
+  
+  .landing-faq {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--color-border);
+    border: 1px solid var(--color-border);
+  }
+  
+  .faq-item {
+    background: var(--color-bg-secondary);
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .faq-item h3 {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    letter-spacing: 0.2px;
+  }
+  
+  .faq-item p {
+    font-size: 12px;
+    color: var(--color-text-tertiary);
+    line-height: 1.6;
+  }
+  
+  .landing-final-cta {
+    padding: 80px 0;
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .landing-final-cta h2 {
+    font-family: 'Courier New', monospace;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    letter-spacing: -0.3px;
+    max-width: 500px;
+  }
+  
+  .landing-final-cta p {
+    font-size: 13px;
+    color: var(--color-text-tertiary);
+    margin-bottom: 8px;
+  }
+  
+  .landing-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0;
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    color: var(--color-text-tertiary);
+    letter-spacing: 0.5px;
+  }
+  
+  @media (max-width: 640px) {
+    .landing-headline {
+      font-size: 22px;
+    }
+    .landing-grid,
+    .landing-steps,
+    .landing-tech {
+      grid-template-columns: 1fr;
+    }
+    .landing-solution-grid {
+      grid-template-columns: 1fr;
+    }
+    .landing-stats {
+      grid-template-columns: 1fr 1fr;
+    }
+    .landing-footer {
+      flex-direction: column;
+      gap: 8px;
+      text-align: center;
+    }
+  }

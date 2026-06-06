@@ -34,41 +34,21 @@ There is no on-chain way to verify who has real alpha. Credibility is based on f
 
 ## HOW IT WORKS
 
-### Three steps. Permanent record.
-
 **01 — Connect your Sui wallet**
 
-Your wallet is your identity. No email, no password, no platform lock-in. You own your data.
+Your wallet is your identity. No email, no password, no platform lock-in.
 
 **02 — Post a signal**
 
-Asset, entry price, target, thesis, confidence level. Stored on Walrus the moment you submit. Immutable from that point forward.
+Asset, entry price, target, and thesis. Stored on Walrus the moment you submit—immutable forever.
 
 **03 — Build your record**
 
-Every call is timestamped on Sui via Tatum RPC. Your accuracy compounds into a reputation score nobody can dispute.
+Every call is timestamped on Sui via Tatum RPC. Live price tracking shows accuracy in real time. Your on-chain reputation score compounds with each accurate call.
 
----
+**04 — Earn credibility**
 
-## THE SOLUTION
-
-### Permanent. Verifiable. On-chain.
-
-**Immutable Signal Storage**
-
-Every signal is a Walrus blob. The entry price, target, thesis, and timestamp are locked permanently. No edits, no deletions, ever.
-
-**Live Price Tracking**
-
-Each signal shows live current price vs entry price. The market is the judge. Your accuracy is visible to everyone in real time.
-
-**Reputation Leaderboard**
-
-Top callers earn points based on accuracy, consistency, and boldness. Your on-chain score is your professional credential.
-
-**Decentralized Feed**
-
-The signal registry lives on Walrus. No central server, no admin, no platform risk. AlphaVault cannot censor your calls.
+Top callers build verifiable track records based on accuracy, consistency, and boldness. Your AlphaVault profile is your professional credential—uncensorable and permanently yours.
 
 ---
 
